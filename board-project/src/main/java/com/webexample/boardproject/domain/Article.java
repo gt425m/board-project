@@ -24,10 +24,9 @@ import java.util.Set;
         , @Index(columnList = "regDt")
         , @Index(columnList = "regId")
 })
-@EntityListeners(AuditingEntityListener.class)
 @Entity
 @NoArgsConstructor
-public class Article {
+public class Article extends AuditingFields {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,22 +47,6 @@ public class Article {
     @OrderBy("id")
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
     private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
-
-    @CreatedDate
-    @Column(nullable = false)
-    private LocalDateTime regDt;
-
-    @CreatedBy
-    @Column(nullable = false, length = 100)
-    private String regId;
-
-    @LastModifiedDate
-    @Column(nullable = false)
-    private LocalDateTime auditDt;
-
-    @LastModifiedBy
-    @Column(nullable = false, length = 100)
-    private String auditId;
 
     private Article(String title, String content, String hashtag) {
         this.title = title;
