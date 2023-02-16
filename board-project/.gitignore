@@ -286,4 +286,7 @@ gradle-app.setting
 # Java heap dump
 *.hprof
 
+### queryDsl
+/src/main/generated
+
 # End of https://www.toptal.com/developers/gitignore/api/java,gradle,intellij+all,eclipse,windows,macos,visualstudiocode
