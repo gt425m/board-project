@@ -77,4 +77,9 @@ public class DataRestTest {
         // 이슈 1
     }
 
+    @Test
+    void issue_2() {
+        // 이슈 2
+    }
+
 }
